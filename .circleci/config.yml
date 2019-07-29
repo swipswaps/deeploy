@@ -36,8 +36,8 @@ jobs:
           name: run tests
           command: |
             . deeploy/bin/activate
-            pytest __tests/
-            pytest --cov=./deeploy --cov-report term-missing --ignore=./lib --cov-config=.coveragerc --no-cov-on-fail __tests/
+            pytest --cov=./ --cov-report term-missing --ignore=./lib --cov-config=.coveragerc __tests/
+            codecov
             coveralls
 
       - store_artifacts:
