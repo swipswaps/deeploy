@@ -25,8 +25,6 @@ jobs:
           command: |
             python3 -m venv deeploy
             . deeploy/bin/activate
-            pwd
-            ls deeploy/ -al
             pip install -r requirements.txt
 
       - save_cache:
@@ -38,7 +36,7 @@ jobs:
           name: run tests
           command: |
             . deeploy/bin/activate
-            pytest --cov=./ --cov-report term-missing --ignore=./lib --ignore=./deeploy/lib  --cov-config=.coveragerc __tests/
+            pytest --cov=deeploy --cov-report term-missing --ignore=./deeploy/lib  --cov-config=.coveragerc __tests/
             codecov
             coveralls --config_file=.coveragerc
 
