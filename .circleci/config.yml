@@ -25,7 +25,8 @@ jobs:
           command: |
             python3 -m venv deeploy
             . deeploy/bin/activate
-            ls -al
+            pwd
+            ls deeploy/ -al
             pip install -r requirements.txt
 
       - save_cache:
