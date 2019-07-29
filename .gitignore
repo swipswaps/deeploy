@@ -7,4 +7,5 @@ include/
 lib/
 pyvenv.cfg
 .coverage
+.pytest_cache/
 step.txt

@@ -3,4 +3,6 @@ omit =
     /usr/*
     bin/*
     lib/*
-    __test/*
+    __tests/*
+
+source = deeploy
