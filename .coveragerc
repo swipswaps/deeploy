@@ -1,0 +1,8 @@
+[run]
+omit =
+    /usr/*
+    bin/*
+    lib/*
+    __tests/*
+
+source = deeploy
