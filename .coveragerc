@@ -1,0 +1,6 @@
+[run]
+omit =
+    /usr/*
+    bin/*
+    lib/*
+    __test/*
