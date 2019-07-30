@@ -1,5 +1,5 @@
 import pytest
-from deeploy.parseRequest import ServiceParse
+from deeploy.parseRequest.service import ServiceParse
 
 GITHUB = {
     'X-GitHub-Event': 'merge',
