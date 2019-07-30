@@ -3,7 +3,6 @@ from setuptools import setup, find_packages
 setup(
   name='deeploy',
   version='0.0.1',
-  script=['say_hello.py'],
   author='Ukor, Jidechi Ekundayo',
   author_email='ukorjidechi@gmail.com',
   description='A minilist deployment script',
