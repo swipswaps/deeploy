@@ -1,5 +1,5 @@
 import pytest
-from deeploy.helpers.service_parse import ServiceParse
+from deeploy.parseRequest import ServiceParse
 
 GITHUB = {
     'X-GitHub-Event': 'merge',
@@ -37,5 +37,3 @@ def test_none():
 def test_exception():
     with pytest.raises(Exception):
         ServiceParse({}).get_service()
-
-
