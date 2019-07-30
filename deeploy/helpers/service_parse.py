@@ -20,21 +20,20 @@ class ServiceParse:
         '''
         headers = self.headers
         if not headers:
-            return None
+            raise Exception('Invalid request.')
 
-        service = ''
+        service = None
         # github = ['X-GitHub-Event', X-GitHub-Delivery', 'X-Hub-Signature']
-        # bitbucket = ['X-Event-Key', 'X-Hook-UUID', 'X-Request-UUID', 'X-Attempt-Number']
-        # (todo - gitlab, circleCI, travisCI)
         if (
                 ('X-GitHub-Event' in headers) and
                 ('X-GitHub-Delivery' in headers) and
                 ('X-Hub-Signature' in headers)
             ):
             service = 'github'
-        elif (('X-Event-Key' in headers) and ('X-Hook-UUID' in headers)):
-            service = 'bitbucket'
-        else:
-            service = None
 
+        # bitbucket = ['X-Event-Key', 'X-Hook-UUID', 'X-Request-UUID', 'X-Attempt-Number']
+        if (('X-Event-Key' in headers) and ('X-Hook-UUID' in headers)):
+            service = 'bitbucket'
+
+        # (todo - gitlab, circleCI, travisCI)
         return service
