@@ -23,7 +23,7 @@ jobs:
           command: |
             python3 -m venv deeploy
             . deeploy/bin/activate
-            pip install -r requirements.txt
+            pip install -r dev_requirements.txt
 
       - save_cache:
           paths:
