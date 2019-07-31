@@ -1,5 +1,3 @@
-import sys
-sys.path.append('..')
 import falcon
 from falcon import testing
 import pytest
