@@ -8,8 +8,6 @@ jobs:
     docker:
       - image: circleci/python:3.7.3
 
-    working_directory: ~/deeploy
-
     steps:
       - checkout
 

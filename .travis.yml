@@ -1,0 +1,15 @@
+dist: xenial
+language: python
+python:
+  - '3.7.3'
+cache:
+  directories:
+  - "$HOME/.cache/pip"
+  - "$HOME/.pyenv"
+install:
+  - pip install -r requirements.txt
+script:
+  pytest --cov=deeploy --cov-report term-missing --ignore=./deeploy/lib  --cov-config=.coveragerc __tests/
+after_success:
+  - codecov
+  - coveralls
