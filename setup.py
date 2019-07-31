@@ -15,7 +15,7 @@ setup(
   version= __version__,
   author='Ukor Jidechi Ekundayo',
   author_email='ukorjidechi@gmail.com',
-  description='A minilist deployment script',
+  description='A deployment script',
   long_description= __long_description__,
   keyword=['Delopy', 'Deployment', 'Deeploy', 'CI/CD', 'DevOps'],
   url='https://github.com/ukor/deeploy',
