@@ -8,4 +8,7 @@ class HandleRequest(object):
 
     def on_post(self, request, response):
         service = ServiceParse(request.headers).get_service()
+        if service is None:
+            raise falcon.HTTPInvalidHeader('Could not identify the service send this request.', 'SERVICE')
+
         response.body = service
