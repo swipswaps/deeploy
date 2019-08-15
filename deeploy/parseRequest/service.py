@@ -1,4 +1,6 @@
 ''' Returns the name of the service sending the request '''
+
+from .bitbucket import Bitbucket
 class ServiceParse:
     '''
         ServiceParse()
@@ -22,18 +24,33 @@ class ServiceParse:
         if not headers:
             raise Exception('Invalid request.')
 
-        service = None
         # github = ['X-GitHub-Event', X-GitHub-Delivery', 'X-Hub-Signature']
         if (
                 ('X-GITHUB-EVENT' in headers) and
                 ('X-GITHUB-DELIVERY' in headers) and
                 ('X-HUB-SIGNATURE' in headers)
             ):
-            service = 'github'
+            return 'github'
 
         # bitbucket = ['X-Event-Key', 'X-Hook-UUID', 'X-Request-UUID', 'X-Attempt-Number']
         if (('X-EVENT-KEY' in headers) and ('X-HOOK-UUID' in headers)):
-            service = 'bitbucket'
+            return 'bitbucket'
 
         # (todo - gitlab, circleCI, travisCI)
+        return None
+
+    def request_dispatcher(self, payload):
+        service = self.get_service()
+
+        if service is None:
+            raise Exception('Could not identify the service that sent this request.')
+
+        if service == 'bitbucket':
+            # handle
+            Bitbucket(self.headers, payload).parser()
+
+            return service
+
+        # (todo - remove)
         return service
+
