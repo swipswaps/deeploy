@@ -51,6 +51,9 @@ class ServiceParse:
 
             return service
 
-        # (todo - remove)
+        if service == 'github':
+            return service
+
+
         return service
 
