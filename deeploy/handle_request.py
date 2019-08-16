@@ -24,6 +24,7 @@ class HandleRequest(object):
             # Determine the service and dispatch request
             ServiceParse(request.headers).request_dispatcher(body)
 
-        except UnicodeDecodeError:
+        except (UnicodeDecodeError, ValueError):
             raise falcon.HTTPError(falcon.HTTP_753, 'Malformed JSON',
                                    'Could not decode the request body.')
+
